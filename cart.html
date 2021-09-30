@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Clone</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="/tailwind.css" rel="stylesheet">
+  <link rel="shortcut icon" href="./src/img/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Header Start -->
+
+        <div 
+         class="bg-white w-full">
+        <div 
+         class="header bg-gray-900 flex items-center">
+
+        <!-- Amazon Logo -->
+
+        <div 
+         class="logo w-1/6 h-16 ml-10">
+
+       <a href="./index.html"> <img
+         class="w-28 h-16 object-contain" src="./src/img/PinClipart.com_barber-clippers-clipart_576184.png" alt="logo"></a>
+        </div>
+
+     <!-- Amazon Logo End -->
+
+        <input 
+         class="h-9 w-30 bg-gray-800 border border-gray-500 border-opacity-75 rounded-l-xl px-3 text-white ml-6 focus:outline-none placeholder-white" id="search" type="text" placeholder="Search...">
+
+      <!--  Category Start -->
+
+        <div 
+         class="categories h-9 w-30 bg-gray-800 border border-gray-500 border-opacity-75 px-3 text-white flex items-center">
+
+        <script 
+         src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer>
+        </script>
+
+        <div 
+         class="text-white">
+
+        <div 
+         x-data="{ open: false }" class="flex flex-col max-w-screen-x1 px-2 md:items-center md:flex-row md:px-6 lg:px-0">
+
+        <div 
+         class="flex flex-row items-center">
+
+        <button 
+         class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+
+        <svg 
+        fill="currentColor" viewBox="0 0 20 20" class="w-8 h-">
+         <path 
+           x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd">
+          </path>
+
+          <path 
+           x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd">
+          </path>
+        </svg>
+      </button>
+    </div>
+
+         <nav 
+          class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+
+         <div 
+          @click.away="open = false" class="relative" x-data="{ open: false }">
+
+         <button 
+          @click="open = !open" class="flex flex-row items-center w-full px-2 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:inline md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline">
+
+         <span>Categories</span>
+
+         <svg 
+         fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-5 h-5 mt-1 transition-transform duration-200 transform md:-mt-1 justify-center items-center">
+           <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+           </path>
+          </svg>
+        </button>
+
+        <div 
+          x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-40">
+
+        <div 
+          class="px-2 py-2 bg-gray-900 rounded-md shadow">
+
+          <a 
+           class="block px-4 py-2 mt-2   text-sm font-semibold bg-transparent rounded-lg  hover:text-gray-800 
+           focus:text-gray-800 
+           hover:bg-yellow-500 focus:bg-yellow-500 focus:outline-none focus:shadow-outline" 
+           href="#">
+           Fashion
+          </a>
+
+          <a 
+           class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-800 focus:text-gray-800 hover:bg-yellow-500 focus:bg-yellow-500 focus:outline-none focus:shadow-outline" 
+           href="#">
+           Electronics
+          </a>
+
+          <a 
+           class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-800 focus:text-gray-800 
+           hover:bg-yellow-500 
+           focus:bg-yellow-500 
+           focus:outline-none focus:shadow-outline" 
+           href="#">
+           Food
+          </a>
+
+          <a 
+           class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg hover:text-gray-800 focus:text-gray-800 
+           hover:bg-yellow-500 
+           focus:bg-yellow-500 focus:outline-none focus:shadow-outline" 
+           href="#">
+           Contact
+          </a>
+         </div>
+        </div>
+      </div>    
+    </nav>
+  </div>
+</div>
+
+<!--  Category End -->
+             
+   <!-- Down Arrow (Not Needed)    
+      <svg 
+      xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg> -->
+
+     </div>
+
+      <div 
+      class="search-icon h-9 w-10 bg-yellow-500 rounded-r-xl flex justify-center items-center text-white">
+
+      <svg 
+       xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+
+      <div 
+      class="icons text-white flex items-center ml-auto mr-8 w-48 h-16 justify-around" >
+
+      <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+
+   <!-- Cart Icon -->
+
+       <a 
+       href="cart.html">
+
+       <div 
+        class="cart-icon relative h-10 w-10 bg-yellow-500 flex items-center justify-center rounded-xl">
+
+        <div 
+        class="cart-item-number text-yellow-400 text-xs font-semibold absolute -top-1 -right-1 h-5 w-5 bg-gray-900 rounded-full flex justify-center items-center">
+        <span class="mr-0.5">1</span></div>
+
+       <svg 
+        class="h-4 w-4 text-gray-600" xmlns="http://owww.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      </div>
+    </a> 
+
+        <svg 
+         xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Sidebar Start -->
+
+    <div class="main h-screen flex">
+      <div class="main-sidebar border-t-2 border-gray-700 border-opacity-75 w-1/5 bg-gray-900 p-6">
+
+      <div class="sidebar-categories">
+        <div class="sidebar-main-categories text-yellow-500 cursor-pointer flex font-bold mb-6 bg-gray-700 p-2 rounded-l"> 
+          <a class="mr-1" href="./index.html">
+          <span class="w-8"> 
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+              </svg>
+            </a>
+        </span>
+        <a href="./index.html"><span>Go Back
+        </span>
+      </a>
+      </div>
+      <div class="sidebar-main-categories text-white cursor-pointer flex font-italic mb-2 p-2 hover:text-yellow-500">
+        <span class="w-8"></span>
+        <span>Letest Products</span>
+      </div>
+      <div class="sidebar-main-categories text-white cursor-pointer flex font-italic mb-2 p-2 hover:text-yellow-500">
+        <span class="w-8"></span>
+        <span>Buy Again</span>
+      </div>
+      <div class="sidebar-main-categories text-white cursor-pointer flex font-italic mb-2 p-2 hover:text-yellow-500">
+        <span class="w-8"></span>
+        <span>Amazon Pay</span>
+      </div>
+      <div class="sidebar-main-categories text-white cursor-pointer flex font-italic mb-2 p-2 hover:text-yellow-500">
+        <span class="w-8"></span>
+        <span>Amazon Prime</span>
+      </div>
+      <div class="sidebar-main-categories text-white cursor-pointer flex font-italic mb-2 p-2 hover:text-yellow-500">
+        <span class="w-8"></span>
+        <span>Address</span>
+      </div>
+      <div class="sidebar-main-categories text-white cursor-pointer flex font-italic mb-2 p-2 hover:text-yellow-500">
+        <span class="w-8"></span>
+        <span>Edit Profile</span>
+      </div>
+
+      <div class="sidebar-categories ">
+        <div class="sidebar-main-categories text-white cursor-pointer flex font-bold mb-4 p-2 rounded-l hover:bg-gray-700 rounded-l hover:text-yellow-500">
+          <span class="w-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+        </span>
+        <span>Contact Us</span>
+      </div>   
+
+      <div class="sidebar-categories">
+        <div class="sidebar-main-categories text-white cursor-pointer flex font-bold mb-2 p-2 rounded-l hover:bg-gray-700 rounded-l hover:text-yellow-500">
+          <span class="w-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+         </span>
+      <span>Help</span>
+     </div>
+    </div>      
+   </div>
+  </div>
+ </div>
+  <!-- Sidebar End -->
+
+            <!-- Head -->
+   
+  <div class="main-section flex-1 p-6 bg-white">
+   <a href="./cart.html"> 
+    <h1 class="font-bold text-gray-900 text-3xl mb-6 cursor-pointer">
+        Shopping Cart
+    </h1>
+    </a>
+
+            <!-- Peoduct item Start -->
+
+    <div class="table-titles font-bold text-white flex bg-gray-800 p-2 rounded-xl cursor-default">
+        <h2 class="flex-grow ml-10">Product</h2>
+        <h2 class="w-48">Count</h2>
+        <h2 class="w-48">Total Cost</h2>
+        <span class="w-10"></span>
+    </div>
+    <div class="cart-items items-center mt-5 pb-4 border-b border-gray-200">
+        <div class="cart-item bg-yellow-400 flex rounded-xl items-center pb-4">
+            <div class="cart-item-image w-40 h-40 p-4">
+                <img class="w-full h-full object-contain" src="https://bit.ly/3ujQ3kH" alt="">
+            </div>
+            <div class="cart-item-details flex-grow">
+                <div class="item-title font-bold text-sm text-gray-700 cursor-default">
+                  144Hz 27 inch e-Sports <br>
+                  Competitive Gaming Monitor
+                </div>
+                <div class="cart-item-brand text-sm font-medium text-gray-600 cursor-default">
+                    Samsung
+                </div>
+            </div>
+            <div class="cart-item-counter w-48 flex items-center">
+
+              <div class="arrow-left cursor-pointer text-yellow-400 bg-gray-700 p-1 rounded-full mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </div>
+              
+              <h4 class="text-gray-700 font-bold cursor-default">x1</h4>
+
+              <div class="arrow-right cursor-pointer text-yellow-400 bg-gray-700 p-1 rounded-full ml-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+            <div class="cart-item-total-cost w-48 font-bold text-gray-700 cursor-default">
+              ₹2599
+            </div>
+            <div class="cart-item-delete w-10 font-bold text-gray-600 cursor-pointer hover:text-gray-800">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+    <!-- Peoduct item End -->
+
+  <!-- Complete order start -->
+
+  <div class="complete-order flex justify-end mt-10">
+    <div class="total-cost mr-7">
+      <h2 class="text-gray-600 cursor-default font-medium">Total Cost</h2>
+      <div class="total-cost-number font-bold text-2xl text-gray-600 cursor-default">
+        ₹2599
+      </div>
+    </div>
+    <div class="complete-order-button w-56 flex items-center justify-center bg-yellow-400 hover:bg-yellow-500 rounded text-white cursor-pointer font-semibold">
+      Complete Order
+    </div>
+  </div>
+
+  <!-- Complete order End -->
+
+  </div>
+</body>
+</html>
